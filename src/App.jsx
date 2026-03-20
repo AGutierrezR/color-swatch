@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="wrapper py-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">Color Palette</h1>
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">ColorSwatch</h1>
         
         <div className="mb-8">
           <textarea
