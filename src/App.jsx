@@ -32,11 +32,15 @@ function App() {
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-primary mb-2">ColorSwatch</h1>
           <p className="text-base-content/60">
-            Genera variables CSS de colores
+            Generate CSS color variables
           </p>
         </div>
 
+        <h2 className="text-xl font-semibold mb-4 text-base-content">Enter Colors</h2>
+
         <ColorInput value={colorInput} onChange={setColorInput} />
+
+        <h2 className="text-xl font-semibold mb-4 text-base-content">CSS Output</h2>
 
         <CssOutput
           prefix={cssPrefix}
@@ -45,6 +49,8 @@ function App() {
           copied={copied}
           onCopy={copyToClipboard}
         />
+
+        <h2 className="text-xl font-semibold mb-4 text-base-content">Color Preview</h2>
 
         <ColorGrid colors={colors} />
       </div>

@@ -8,7 +8,7 @@ function ColorGrid({ colors }) {
         >
           <div className="h-24 w-full" style={{ background: color.value }} />
           <div className="card-body p-3 text-center">
-            <div className="text-sm font-medium text-base-content">
+            <div className="text-sm font-medium capitalize text-base-content">
               {color.label}
             </div>
             <div className="text-xs text-base-content/60 mt-1">
