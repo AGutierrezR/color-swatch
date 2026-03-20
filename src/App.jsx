@@ -34,7 +34,7 @@ function App() {
   const colors = parseColors(colorInput)
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="wrapper py-8">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">Color Palette</h1>
         
@@ -49,14 +49,14 @@ Stone 100: hsl(30, 54%, 90%)"
           />
         </div>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="auto-grid" data-fit="auto-fit">
           {colors.map((color, index) => (
             <div 
               key={index} 
               className="rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
             >
               <div 
-                className="w-36 h-24"
+                className="w-full h-24"
                 style={{ background: color.value }}
               />
               <div className="bg-white p-3 text-center">
