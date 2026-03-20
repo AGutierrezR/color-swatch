@@ -1,51 +1,59 @@
 import { useState } from "react";
-import { COLOR_FORMATS } from "../utils";
+import ColorCard from "./ColorCard";
+import SectionHeader from "./SectionHeader";
 
-function ColorGrid({ colors, outputFormat, onFormatChange }) {
+function ColorGrid({ colors }) {
   const [layout, setLayout] = useState("grid");
 
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-semibold text-base-content">Color Preview</h2>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <label className="text-sm text-base-content/60">Layout:</label>
-            <div className="join">
-              <button
-                className={`btn btn-sm join-item ${layout === "grid" ? "btn-primary" : "btn-ghost"}`}
-                onClick={() => setLayout("grid")}
-              >
-                Grid
-              </button>
-              <button
-                className={`btn btn-sm join-item ${layout === "list" ? "btn-primary" : "btn-ghost"}`}
-                onClick={() => setLayout("list")}
-              >
-                List
-              </button>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <label className="text-sm text-base-content/60">Format:</label>
-            <select
-              className="select select-bordered select-sm"
-              value={outputFormat}
-              onChange={(e) => onFormatChange(e.target.value)}
+        <SectionHeader title="Colors Palette" subtitle="Visualizer" />
+        <div className="flex items-center gap-2">
+          <button
+            className={`btn btn-sm btn-ghost ${layout === "grid" ? "btn-active" : ""}`}
+            onClick={() => setLayout("grid")}
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              {COLOR_FORMATS.map((format) => (
-                <option key={format} value={format}>
-                  {format.toUpperCase()}
-                </option>
-              ))}
-            </select>
-          </div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+              />
+            </svg>
+          </button>
+          <button
+            className={`btn btn-sm btn-ghost ${layout === "list" ? "btn-active" : ""}`}
+            onClick={() => setLayout("list")}
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
         </div>
       </div>
       {colors.length === 0 ? (
         <div className="text-center py-12 text-base-content/50">
           <p className="text-lg mb-2">No colors to display</p>
-          <p className="text-sm">Enter colors in the input and click "Extract Palette" to get started</p>
+          <p className="text-sm">
+            Enter colors in the input and click "Extract Palette" to get started
+          </p>
         </div>
       ) : (
         <div
@@ -56,25 +64,7 @@ function ColorGrid({ colors, outputFormat, onFormatChange }) {
           }
         >
           {colors.map((color, index) => (
-            <div
-              key={index}
-              className={`bg-base-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ${
-                layout === "grid" ? "card" : "flex items-center gap-4 p-2 rounded-lg"
-              }`}
-            >
-              {layout === "list" && (
-                <div className="w-40 h-20 flex-shrink-0 rounded-lg" style={{ background: color.value }} />
-              )}
-              {layout === "grid" && <div className="h-24 w-full" style={{ background: color.value }} />}
-              <div className={layout === "grid" ? "card-body p-3 text-center" : "flex-1"}>
-                <div className="text-sm font-medium capitalize text-base-content">
-                  {color.label}
-                </div>
-                <div className="text-xs text-base-content/60 mt-1 font-mono">
-                  {color.value}
-                </div>
-              </div>
-            </div>
+            <ColorCard key={index} color={color} layout={layout} />
           ))}
         </div>
       )}

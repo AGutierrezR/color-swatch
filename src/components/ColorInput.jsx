@@ -1,11 +1,13 @@
+import SectionHeader from "./SectionHeader";
+
 function ColorInput({ value, onChange, onExtract }) {
   return (
     <div className="flow mb-8 bg-base-200 p-6 rounded-lg">
-      <p className="text-[0.625rem] uppercase font-semibold">Input Workspace</p>
-      <h2 className="text-[1.5rem] font-normal">Enter Colors</h2>
-      <p className="text-sm text-gray-500 mb-4">
-        Paste your HEX codes, RGB, or color names. Our curator will organize them into an editorial-grade palette.
-      </p>
+      <SectionHeader
+        title="Enter Colors"
+        subtitle="Input Workspace"
+        description="Paste your HEX codes, RGB, or color names. Our curator will organize them into an editorial-grade palette."
+      />
       <textarea
         className="textarea textarea-bordered w-full h-48 font-mono text-sm resize-y"
         value={value}

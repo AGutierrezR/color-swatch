@@ -1,4 +1,5 @@
 import { COLOR_FORMATS } from "../utils";
+import SectionHeader from "./SectionHeader";
 
 function CssOutput({
   prefix,
@@ -11,6 +12,7 @@ function CssOutput({
 }) {
   return (
     <div className="flow mb-8 bg-base-200 p-6 rounded-lg">
+      <SectionHeader title="CSS Variables" subtitle="Output Format" />
       <div className="auto-grid" data-fit="two-columns">
         <div className="flow">
           <label className="font-medium text-base-content">CSS prefix:</label>

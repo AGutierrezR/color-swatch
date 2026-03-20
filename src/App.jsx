@@ -48,8 +48,6 @@ function App() {
           <div>
             <ColorInput value={inputValue} onChange={setInputValue} onExtract={extractPalette} />
 
-            <h2 className="text-xl font-semibold mb-4 text-base-content">CSS Output</h2>
-
             <CssOutput
               prefix={cssPrefix}
               onPrefixChange={setCssPrefix}
