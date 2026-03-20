@@ -44,25 +44,31 @@ function App() {
           </p>
         </div>
 
-        <ColorInput value={inputValue} onChange={setInputValue} onExtract={extractPalette} />
+        <div className="sidebar">
+          <div>
+            <ColorInput value={inputValue} onChange={setInputValue} onExtract={extractPalette} />
 
-        <h2 className="text-xl font-semibold mb-4 text-base-content">CSS Output</h2>
+            <h2 className="text-xl font-semibold mb-4 text-base-content">CSS Output</h2>
 
-        <CssOutput
-          prefix={cssPrefix}
-          onPrefixChange={setCssPrefix}
-          cssOutput={cssOutput}
-          copied={copied}
-          onCopy={copyToClipboard}
-          outputFormat={outputFormat}
-          onFormatChange={setOutputFormat}
-        />
+            <CssOutput
+              prefix={cssPrefix}
+              onPrefixChange={setCssPrefix}
+              cssOutput={cssOutput}
+              copied={copied}
+              onCopy={copyToClipboard}
+              outputFormat={outputFormat}
+              onFormatChange={setOutputFormat}
+            />
+          </div>
 
-        <ColorGrid
-          colors={formattedColors}
-          outputFormat={outputFormat}
-          onFormatChange={setOutputFormat}
-        />
+          <div>
+            <ColorGrid
+              colors={formattedColors}
+              outputFormat={outputFormat}
+              onFormatChange={setOutputFormat}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
