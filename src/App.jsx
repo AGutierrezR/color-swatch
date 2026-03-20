@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { parseColors } from './utils'
+import { parseColors, toCssVariables } from './utils'
 
 const defaultColors = `White: hsl(0, 0%, 100%)
 Stone 100: hsl(30, 54%, 90%)
@@ -12,7 +12,16 @@ Rose 50: hsl(330, 100%, 98%)`
 
 function App() {
   const [colorInput, setColorInput] = useState(defaultColors)
+  const [cssPrefix, setCssPrefix] = useState('--color-')
+  const [copied, setCopied] = useState(false)
   const colors = parseColors(colorInput)
+  const cssOutput = toCssVariables(colors, cssPrefix)
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(cssOutput)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   return (
     <div className="wrapper py-8">
@@ -28,6 +37,28 @@ function App() {
 White: hsl(0, 0%, 100%)
 Stone 100: hsl(30, 54%, 90%)"
           />
+        </div>
+
+        <div className="mb-8 bg-gray-50 p-6 rounded-lg">
+          <div className="flex items-center gap-4 mb-4">
+            <label className="font-medium text-gray-700">Prefijo CSS:</label>
+            <input
+              type="text"
+              className="flex-1 max-w-xs px-3 py-2 border border-gray-300 rounded-lg font-mono text-sm"
+              value={cssPrefix}
+              onChange={(e) => setCssPrefix(e.target.value)}
+              placeholder="--color-"
+            />
+            <button
+              onClick={copyToClipboard}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              {copied ? 'Copiado!' : 'Copiar CSS'}
+            </button>
+          </div>
+          <pre className="bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm font-mono">
+            {cssOutput}
+          </pre>
         </div>
 
         <div className="auto-grid" data-fit="auto-fit">

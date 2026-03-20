@@ -17,3 +17,18 @@ export function parseColors(input) {
 
   return colors
 }
+
+export function toCssVariables(colors, prefix = '--color-') {
+  if (colors.length === 0) {
+    return ':root {}'
+  }
+
+  const varName = (label) => {
+    const normalized = label.toLowerCase().replace(/\s+/g, '-')
+    return `${prefix}${normalized}`
+  }
+
+  const lines = colors.map(({ label, value }) => `  ${varName(label)}: ${value};`)
+
+  return `:root {\n${lines.join('\n')}\n}`
+}
