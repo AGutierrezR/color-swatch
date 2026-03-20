@@ -36,7 +36,21 @@ body {
   --grid-placement: auto-fit;
 }
 
-.auto-grid[data-rows="masonry"] {
-  align-items: start;
-  grid-template-rows: masonry;
+.auto-grid[data-fit="two-columns"] {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 1.5rem;
 }
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter, var(--space-s-l));
+  justify-content: var(--cluster-horizontal-alignment, flex-start);
+  align-items: var(--cluster-vertical-alignment, center);
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
