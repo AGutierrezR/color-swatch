@@ -27,9 +27,14 @@ function App() {
   };
 
   return (
-    <div className="wrapper py-8">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">ColorSwatch</h1>
+    <div className="min-h-screen py-8">
+      <div className="wrapper">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-primary mb-2">ColorSwatch</h1>
+          <p className="text-base-content/60">
+            Genera variables CSS de colores hsl
+          </p>
+        </div>
 
         <ColorInput value={colorInput} onChange={setColorInput} />
 

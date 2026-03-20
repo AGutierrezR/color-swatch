@@ -2,7 +2,7 @@ function ColorInput({ value, onChange }) {
   return (
     <div className="mb-8">
       <textarea
-        className="w-full h-48 p-4 border border-gray-300 rounded-lg font-mono text-sm resize-y"
+        className="textarea textarea-bordered w-full h-48 font-mono text-sm resize-y"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="Ingresa los colores en formato:
