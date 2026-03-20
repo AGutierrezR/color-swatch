@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 
 const defaultColors = `White: hsl(0, 0%, 100%)
 Stone 100: hsl(30, 54%, 90%)
@@ -35,32 +34,38 @@ function App() {
   const colors = parseColors(colorInput)
 
   return (
-    <div className="container">
-      <h1>Color Palette</h1>
-      
-      <div className="input-section">
-        <textarea
-          value={colorInput}
-          onChange={(e) => setColorInput(e.target.value)}
-          placeholder="Ingresa los colores en formato:
+    <div className="min-h-screen bg-gray-100 p-8">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">Color Palette</h1>
+        
+        <div className="mb-8">
+          <textarea
+            className="w-full h-48 p-4 border border-gray-300 rounded-lg font-mono text-sm resize-y"
+            value={colorInput}
+            onChange={(e) => setColorInput(e.target.value)}
+            placeholder="Ingresa los colores en formato:
 White: hsl(0, 0%, 100%)
 Stone 100: hsl(30, 54%, 90%)"
-        />
-      </div>
+          />
+        </div>
 
-      <div className="palette">
-        {colors.map((color, index) => (
-          <div key={index} className="swatch">
+        <div className="flex flex-wrap gap-4">
+          {colors.map((color, index) => (
             <div 
-              className="color-box" 
-              style={{ background: color.value }}
-            />
-            <div className="label">
-              {color.label}
-              <span>{color.value}</span>
+              key={index} 
+              className="rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
+            >
+              <div 
+                className="w-36 h-24"
+                style={{ background: color.value }}
+              />
+              <div className="bg-white p-3 text-center">
+                <div className="text-sm font-medium text-gray-800">{color.label}</div>
+                <div className="text-xs text-gray-500 mt-1">{color.value}</div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )
