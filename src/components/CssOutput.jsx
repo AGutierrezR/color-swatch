@@ -14,14 +14,14 @@ function CssOutput({ prefix, onPrefixChange, cssOutput, copied, onCopy }) {
           onClick={onCopy}
           className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
         >
-          {copied ? 'Copiado!' : 'Copiar CSS'}
+          {copied ? "Copiado!" : "Copiar CSS"}
         </button>
       </div>
       <pre className="bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm font-mono">
         {cssOutput}
       </pre>
     </div>
-  )
+  );
 }
 
-export default CssOutput
+export default CssOutput;

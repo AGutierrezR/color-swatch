@@ -16,23 +16,23 @@
  * // Returns: [{ label: "White", value: "hsl(0, 0%, 100%)" }, { label: "Stone 100", value: "hsl(30, 54%, 90%)" }]
  */
 export function parseColors(input) {
-  const lines = input.trim().split('\n')
-  const colors = []
+  const lines = input.trim().split("\n");
+  const colors = [];
 
   for (const line of lines) {
-    const trimmed = line.trim()
-    if (!trimmed) continue
+    const trimmed = line.trim();
+    if (!trimmed) continue;
 
-    const colonIndex = trimmed.indexOf(':')
-    if (colonIndex === -1) continue
+    const colonIndex = trimmed.indexOf(":");
+    if (colonIndex === -1) continue;
 
-    const label = trimmed.substring(0, colonIndex).trim()
-    const value = trimmed.substring(colonIndex + 1).trim()
+    const label = trimmed.substring(0, colonIndex).trim();
+    const value = trimmed.substring(colonIndex + 1).trim();
 
-    colors.push({ label, value })
+    colors.push({ label, value });
   }
 
-  return colors
+  return colors;
 }
 
 /**
@@ -46,17 +46,19 @@ export function parseColors(input) {
  * toCssVariables([{ label: "Primary Blue", value: "#0066ff" }], '--theme-')
  * // Returns: ":root {\n  --theme-primary-blue: #0066ff;\n}"
  */
-export function toCssVariables(colors, prefix = '--color-') {
+export function toCssVariables(colors, prefix = "--color-") {
   if (colors.length === 0) {
-    return ':root {}'
+    return ":root {}";
   }
 
   const varName = (label) => {
-    const normalized = label.toLowerCase().replace(/\s+/g, '-')
-    return `${prefix}${normalized}`
-  }
+    const normalized = label.toLowerCase().replace(/\s+/g, "-");
+    return `${prefix}${normalized}`;
+  };
 
-  const lines = colors.map(({ label, value }) => `  ${varName(label)}: ${value};`)
+  const lines = colors.map(
+    ({ label, value }) => `  ${varName(label)}: ${value};`
+  );
 
-  return `:root {\n${lines.join('\n')}\n}`
+  return `:root {\n${lines.join("\n")}\n}`;
 }

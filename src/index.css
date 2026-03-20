@@ -27,11 +27,11 @@ body {
   gap: var(--gutter, var(--space-s-l));
 }
 
-.auto-grid[data-fit='auto-fit'] {
+.auto-grid[data-fit="auto-fit"] {
   --grid-placement: auto-fit;
 }
 
-.auto-grid[data-rows='masonry'] {
+.auto-grid[data-rows="masonry"] {
   align-items: start;
   grid-template-rows: masonry;
 }

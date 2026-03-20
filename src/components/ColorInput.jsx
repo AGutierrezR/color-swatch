@@ -10,7 +10,7 @@ White: hsl(0, 0%, 100%)
 Stone 100: hsl(30, 54%, 90%)"
       />
     </div>
-  )
+  );
 }
 
-export default ColorInput
+export default ColorInput;
