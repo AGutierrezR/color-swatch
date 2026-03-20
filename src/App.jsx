@@ -58,7 +58,11 @@ function App() {
           onFormatChange={setOutputFormat}
         />
 
-        <ColorGrid colors={formattedColors} outputFormat={outputFormat} onFormatChange={setOutputFormat} />
+        <ColorGrid
+          colors={formattedColors}
+          outputFormat={outputFormat}
+          onFormatChange={setOutputFormat}
+        />
       </div>
     </div>
   );
