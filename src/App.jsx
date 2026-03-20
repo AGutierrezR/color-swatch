@@ -32,7 +32,7 @@ function App() {
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-primary mb-2">ColorSwatch</h1>
           <p className="text-base-content/60">
-            Genera variables CSS de colores hsl
+            Genera variables CSS de colores
           </p>
         </div>
 
