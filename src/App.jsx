@@ -14,12 +14,18 @@ Rose 800: hsl(332, 51%, 32%)
 Rose 50: hsl(330, 100%, 98%)`;
 
 function App() {
-  const [colorInput, setColorInput] = useState(defaultColors);
+  const [inputValue, setInputValue] = useState(defaultColors);
+  const [extractedColors, setExtractedColors] = useState([]);
   const [cssPrefix, setCssPrefix] = useState("--color");
   const [outputFormat, setOutputFormat] = useState("hsl");
   const [copied, setCopied] = useState(false);
-  const colors = parseColors(colorInput);
-  const formattedColors = convertColors(colors, outputFormat);
+
+  const extractPalette = () => {
+    const colors = parseColors(inputValue);
+    setExtractedColors(colors);
+  };
+
+  const formattedColors = convertColors(extractedColors, outputFormat);
   const cssOutput = toCssVariables(formattedColors, cssPrefix);
 
   const copyToClipboard = () => {
@@ -38,9 +44,7 @@ function App() {
           </p>
         </div>
 
-        <h2 className="text-xl font-semibold mb-4 text-base-content">Enter Colors</h2>
-
-        <ColorInput value={colorInput} onChange={setColorInput} />
+        <ColorInput value={inputValue} onChange={setInputValue} onExtract={extractPalette} />
 
         <h2 className="text-xl font-semibold mb-4 text-base-content">CSS Output</h2>
 
