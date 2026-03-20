@@ -15,7 +15,7 @@ Rose 50: hsl(330, 100%, 98%)`;
 
 function App() {
   const [colorInput, setColorInput] = useState(defaultColors);
-  const [cssPrefix, setCssPrefix] = useState("--color-");
+  const [cssPrefix, setCssPrefix] = useState("--color");
   const [outputFormat, setOutputFormat] = useState("hsl");
   const [copied, setCopied] = useState(false);
   const colors = parseColors(colorInput);

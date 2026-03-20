@@ -10,7 +10,7 @@ function CssOutput({ prefix, onPrefixChange, cssOutput, copied, onCopy, outputFo
           className="input input-bordered flex-1 max-w-xs font-mono text-sm"
           value={prefix}
           onChange={(e) => onPrefixChange(e.target.value)}
-          placeholder="--color-"
+          placeholder="--color"
         />
         <label className="font-medium text-base-content">Format:</label>
         <select

@@ -95,7 +95,7 @@ describe("utils", () => {
     it("should generate CSS variables with custom prefix", () => {
       const colors = [{ label: "Primary", value: "#ff0000" }];
 
-      const result = toCssVariables(colors, "--theme-");
+      const result = toCssVariables(colors, "--theme");
 
       expect(result).toBe(":root {\n  --theme-primary: #ff0000;\n}");
     });

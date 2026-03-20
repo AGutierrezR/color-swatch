@@ -219,14 +219,14 @@ export function parseColors(input) {
  * toCssVariables([{ label: "Primary Blue", value: "#0066ff" }], '--theme-')
  * // Returns: ":root {\n  --theme-primary-blue: #0066ff;\n}"
  */
-export function toCssVariables(colors, prefix = "--color-") {
+export function toCssVariables(colors, prefix = "--color") {
   if (colors.length === 0) {
     return ":root {}";
   }
 
   const varName = (label) => {
     const normalized = label.toLowerCase().replace(/\s+/g, "-");
-    return `${prefix}${normalized}`;
+    return `${prefix}-${normalized}`;
   };
 
   const lines = colors.map(
