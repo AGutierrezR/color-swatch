@@ -108,9 +108,9 @@ describe('utils', () => {
       const result = toCssVariables(colors)
 
       expect(result).toBe(`:root {
-    --color-white: hsl(0, 0%, 100%);
-    --color-stone-100: hsl(30, 54%, 90%);
-  }`)
+  --color-white: hsl(0, 0%, 100%);
+  --color-stone-100: hsl(30, 54%, 90%);
+}`)
     })
 
     it('should handle empty colors array', () => {
@@ -129,5 +129,4 @@ describe('utils', () => {
       expect(result).toContain('--color-stone-100: hsl(30, 54%, 90%)')
     })
   })
-)
-}
+})
