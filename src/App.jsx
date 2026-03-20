@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { parseColors, toCssVariables } from "./utils";
+import { parseColors, toCssVariables, convertColors } from "./utils";
 import ColorInput from "./components/ColorInput";
 import CssOutput from "./components/CssOutput";
 import ColorGrid from "./components/ColorGrid";
@@ -16,9 +16,11 @@ Rose 50: hsl(330, 100%, 98%)`;
 function App() {
   const [colorInput, setColorInput] = useState(defaultColors);
   const [cssPrefix, setCssPrefix] = useState("--color-");
+  const [outputFormat, setOutputFormat] = useState("hsl");
   const [copied, setCopied] = useState(false);
   const colors = parseColors(colorInput);
-  const cssOutput = toCssVariables(colors, cssPrefix);
+  const formattedColors = convertColors(colors, outputFormat);
+  const cssOutput = toCssVariables(formattedColors, cssPrefix);
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(cssOutput);
@@ -48,11 +50,11 @@ function App() {
           cssOutput={cssOutput}
           copied={copied}
           onCopy={copyToClipboard}
+          outputFormat={outputFormat}
+          onFormatChange={setOutputFormat}
         />
 
-        <h2 className="text-xl font-semibold mb-4 text-base-content">Color Preview</h2>
-
-        <ColorGrid colors={colors} />
+        <ColorGrid colors={formattedColors} outputFormat={outputFormat} onFormatChange={setOutputFormat} />
       </div>
     </div>
   );
