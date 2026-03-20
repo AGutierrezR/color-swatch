@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { parseColors } from './utils'
 
 const defaultColors = `White: hsl(0, 0%, 100%)
 Stone 100: hsl(30, 54%, 90%)
@@ -8,26 +9,6 @@ Stone 900: hsl(24, 5%, 18%)
 Brown 800: hsl(14, 45%, 36%)
 Rose 800: hsl(332, 51%, 32%)
 Rose 50: hsl(330, 100%, 98%)`
-
-function parseColors(input) {
-  const lines = input.trim().split('\n')
-  const colors = []
-
-  for (const line of lines) {
-    const trimmed = line.trim()
-    if (!trimmed) continue
-
-    const colonIndex = trimmed.indexOf(':')
-    if (colonIndex === -1) continue
-
-    const label = trimmed.substring(0, colonIndex).trim()
-    const value = trimmed.substring(colonIndex + 1).trim()
-
-    colors.push({ label, value })
-  }
-
-  return colors
-}
 
 function App() {
   const [colorInput, setColorInput] = useState(defaultColors)
