@@ -6,12 +6,10 @@ import ColorGrid from "./components/ColorGrid";
 
 const defaultColors = `White: hsl(0, 0%, 100%)
 Stone 100: hsl(30, 54%, 90%)
-Stone 150: hsl(30, 18%, 87%)
 Stone 600: hsl(30, 10%, 34%)
-Stone 900: hsl(24, 5%, 18%)
 Brown 800: hsl(14, 45%, 36%)
-Rose 800: hsl(332, 51%, 32%)
-Rose 50: hsl(330, 100%, 98%)`;
+Rose 50: hsl(330, 100%, 98%)
+Rose 800: hsl(332, 51%, 32%)`;
 
 function App() {
   const [inputValue, setInputValue] = useState(defaultColors);
@@ -39,14 +37,16 @@ function App() {
       <div className="wrapper">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-primary mb-2">ColorSwatch</h1>
-          <p className="text-base-content/60">
-            Generate CSS color variables
-          </p>
+          <p className="text-base-content/60">Generate CSS color variables</p>
         </div>
 
         <div className="sidebar">
           <div>
-            <ColorInput value={inputValue} onChange={setInputValue} onExtract={extractPalette} />
+            <ColorInput
+              value={inputValue}
+              onChange={setInputValue}
+              onExtract={extractPalette}
+            />
 
             <CssOutput
               prefix={cssPrefix}
