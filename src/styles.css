@@ -56,23 +56,17 @@ body {
 
 .sidebar {
   --sidebar-target-width: 25rem;
+  --sidebar-space: 2rem; 
 
   display: flex;
   flex-wrap: wrap;
-  gap: var(--gutter, var(--space-s-l));
+  gap: var(--sidebar-space, var(--gutter));
 }
 
 .sidebar > :first-child {
-  max-width: var(--sidebar-target-width);
   flex-basis: var(--sidebar-target-width);
   flex-grow: 1;
-
-  @media (max-width: 980px) {
-    & {
-      max-width: none;
-      min-width: 0;
-    }
-  }
+  min-width: 0;
 }
 
 .sidebar > :last-child {
