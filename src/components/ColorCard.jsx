@@ -8,7 +8,7 @@ function ColorCard({ color, layout }) {
       }`}
     >
       <div
-        className={`rounded-lg flex-shrink-0 ${isGrid ? "h-40 w-full rounded-t-lg" : "w-40 h-20"}`}
+        className={`flex-shrink-0 ${isGrid ? "h-40 w-full rounded-t-lg" : "rounded-lg w-40 h-20"}`}
         style={{ background: color.value }}
       />
       <div className={isGrid ? "card-body p-3 text-center" : "flex-1"}>

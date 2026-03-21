@@ -11,7 +11,7 @@ function CssOutput({
   onFormatChange,
 }) {
   return (
-    <div className="flow mb-8 bg-base-200 p-6 rounded-lg">
+    <div className="flow mb-8 bg-base-100 p-6 rounded-lg">
       <SectionHeader title="CSS Variables" subtitle="Output Format" />
       <div className="auto-grid" data-fit="two-columns">
         <div className="flow">
@@ -39,12 +39,12 @@ function CssOutput({
           </select>
         </div>
       </div>
-      <pre className="bg-base-300 text-base-content p-4 rounded-lg overflow-x-auto text-sm font-mono">
+      <pre className="bg-base-300/40 text-base-content p-4 rounded-lg overflow-x-auto text-sm font-mono">
         {cssOutput}
       </pre>
       <button
         onClick={onCopy}
-        className={`btn btn-block mt-4 ${copied ? "btn-success" : "btn-primary"}`}
+        className={`btn btn-block mt-4 ${copied ? "btn-success" : "btn-neutral"}`}
       >
         {copied ? "Copied!" : "Copy CSS"}
       </button>

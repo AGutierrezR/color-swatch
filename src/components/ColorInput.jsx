@@ -2,7 +2,7 @@ import SectionHeader from "./SectionHeader";
 
 function ColorInput({ value, onChange, onExtract }) {
   return (
-    <div className="flow mb-8 bg-base-200 p-6 rounded-lg">
+    <div className="flow mb-8 bg-base-100 p-6 rounded-lg">
       <SectionHeader
         title="Enter Colors"
         subtitle="Input Workspace"
@@ -16,7 +16,7 @@ function ColorInput({ value, onChange, onExtract }) {
 White: hsl(0, 0%, 100%)
 Stone 100: hsl(30, 54%, 90%)"
       />
-      <button className="btn btn-primary w-full mt-4" onClick={onExtract}>
+      <button className="btn btn-neutral w-full mt-4" onClick={onExtract}>
         Extract Palette
       </button>
     </div>

@@ -36,7 +36,9 @@ function App() {
     <div className="min-h-screen py-8">
       <div className="wrapper">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-primary mb-2">ColorSwatch</h1>
+          <h1 className="text-4xl font-bold text-base-content mb-2">
+            ColorSwatch
+          </h1>
           <p className="text-base-content/60">Generate CSS color variables</p>
         </div>
 
@@ -68,6 +70,20 @@ function App() {
           </div>
         </div>
       </div>
+
+      <footer className="text-center py-2 text-sm text-base-content/60">
+        <p>
+          Coded by{" "}
+          <a
+            href="https://agutierrezr.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            Andres Gutierrez
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
