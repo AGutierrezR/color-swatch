@@ -55,14 +55,24 @@ body {
 }
 
 .sidebar {
+  --sidebar-target-width: 25rem;
+
   display: flex;
   flex-wrap: wrap;
   gap: var(--gutter, var(--space-s-l));
 }
 
 .sidebar > :first-child {
-  flex-basis: var(--sidebar-target-width, 20rem);
+  max-width: var(--sidebar-target-width);
+  flex-basis: var(--sidebar-target-width);
   flex-grow: 1;
+
+  @media (max-width: 980px) {
+    & {
+      max-width: none;
+      min-width: 0;
+    }
+  }
 }
 
 .sidebar > :last-child {
@@ -70,4 +80,3 @@ body {
   flex-grow: 999;
   min-width: var(--sidebar-content-min-width, 50%);
 }
-
