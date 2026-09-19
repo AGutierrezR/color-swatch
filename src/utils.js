@@ -3,7 +3,11 @@ export const COLOR_FORMATS = ["hex", "rgb", "hsl"];
 function parseRgb(color) {
   const match = color.match(/rgba?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/i);
   if (match) {
-    return { r: parseInt(match[1]), g: parseInt(match[2]), b: parseInt(match[3]) };
+    return {
+      r: parseInt(match[1]),
+      g: parseInt(match[2]),
+      b: parseInt(match[3]),
+    };
   }
   return null;
 }
@@ -29,9 +33,7 @@ function parseHex(color) {
 }
 
 function parseHsl(color) {
-  const match = color.match(
-    /hsla?\s*\(\s*(\d+)\s*,\s*(\d+)%?\s*,\s*(\d+)%?/i
-  );
+  const match = color.match(/hsla?\s*\(\s*(\d+)\s*,\s*(\d+)%?\s*,\s*(\d+)%?/i);
   if (match) {
     return {
       h: parseInt(match[1]),
@@ -147,6 +149,8 @@ export function hslToRgb(h, s, l) {
 }
 
 export function convertColor(colorString, targetFormat) {
+  if (detectColorFormat(colorString) === targetFormat) return colorString;
+
   const rgb = parseColor(colorString);
   if (!rgb) return colorString;
 

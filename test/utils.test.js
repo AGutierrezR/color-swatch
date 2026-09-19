@@ -333,9 +333,27 @@ describe("utils", () => {
       expect(convertColor("red", "hex")).toBe("red");
     });
 
+    it("should not convert when input format matches target format", () => {
+      expect(convertColor("hsl(231, 100%, 99%)", "hsl")).toBe(
+        "hsl(231, 100%, 99%)"
+      );
+      expect(convertColor("#fafbff", "hex")).toBe("#fafbff");
+      expect(convertColor("rgb(250, 251, 255)", "rgb")).toBe(
+        "rgb(250, 251, 255)"
+      );
+    });
+
+    it("should preserve exact hsl when target format is hsl", () => {
+      expect(convertColor("hsla(120, 100%, 50%, 0.5)", "hsl")).toBe(
+        "hsla(120, 100%, 50%, 0.5)"
+      );
+    });
+
     it("should handle white color conversion", () => {
       expect(convertColor("hsl(0, 0%, 100%)", "hex")).toBe("#ffffff");
-      expect(convertColor("hsl(0, 0%, 100%)", "rgb")).toBe("rgb(255, 255, 255)");
+      expect(convertColor("hsl(0, 0%, 100%)", "rgb")).toBe(
+        "rgb(255, 255, 255)"
+      );
     });
 
     it("should handle black color conversion", () => {
